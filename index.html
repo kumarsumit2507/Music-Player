@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="music-card">
+            <nav>
+                <div class="nav-item">
+                    <span class="material-symbols-outlined">
+                        chevron_left
+                    </span>
+                </div>
+                <div class="nav">
+                    <div class="boxContainer">
+                        <div class="box box1"></div>
+                        <div class="box box2"></div>
+                        <div class="box box3"></div>
+                        <div class="box box4"></div>
+                        <div class="box box5"></div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <span class="material-symbols-outlined">
+                        menu
+                    </span>
+                </div>
+            </nav>
+            <div class="card-main">
+                <div class="music-img">
+                </div>
+                <div class="music-info">
+                    <h1 class="prim-h">Hai Junoon</h1>
+                    <h3 class="sec-h">Various Artists</h3>
+                </div>
+                <div class="music-controls">
+                    <audio id="song">
+                        <source src="/assets/Hai Junoon.mp3" type="audio/mp3">
+                    </audio>
+                    <input type="range" value="0" id="music-timeline">
+                </div>
+                <div class="buttons">
+                    <button class="btn" id="backward" onclick="">
+                        <span class="material-symbols-outlined">
+                            fast_rewind
+                        </span>
+                    </button>
+                    <button class="btn" id="play-pause" onclick="playPause()">
+                        <span class="material-symbols-outlined">
+                            
+                            play_arrow
+                        </span>
+                    </button>
+                    <button class="btn" id="forward" onclick="">
+                        <span class="material-symbols-outlined">
+                            fast_forward
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
