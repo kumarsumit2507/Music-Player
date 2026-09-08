@@ -8,69 +8,86 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
 </head>
 
 <body>
-    <div class="container">
-        <div class="music-card">
+    <main class="container">
+        <article class="music-card">
             <nav>
-                <div class="nav-item">
-                    <span class="material-symbols-outlined">
-                        chevron_left
-                    </span>
-                </div>
-                <div class="nav">
-                    <div class="boxContainer">
-                        <div class="box box1"></div>
-                        <div class="box box2"></div>
-                        <div class="box box3"></div>
-                        <div class="box box4"></div>
-                        <div class="box box5"></div>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <span class="material-symbols-outlined">
-                        menu
-                    </span>
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="search-box__input"   
+                        placeholder="Search track or artist..." 
+                        autocomplete="off" 
+                        aria-label="Search tracks or artists"
+                        aria-autocomplete="list"
+                        aria-controls="search-results"
+                        aria-expanded="false"
+                    />
+                    <button type="button" class="search-box__btn" aria-label="Search">
+                        <span class="material-symbols-outlined" aria-hidden="true">search</span>
+                    </button>
+                    <!-- Dynamic Search Results Dropdown -->
+                    <div 
+                        id="search-results" 
+                        class="search-results search-results--hidden" 
+                        role="listbox"
+                        aria-label="Search results"
+                    ></div>
                 </div>
             </nav>
-            <div class="card-main">
-                <div class="music-img">
-                </div>
+
+            <section class="card-main">
+                <div class="music-img" role="img" aria-label="Album cover art"></div>
+
                 <div class="music-info">
-                    <h1 class="prim-h">Hai Junoon</h1>
-                    <h3 class="sec-h">Various Artists</h3>
+                    <h1 class="prim-h music-card__title">No Track Selected</h1>
+                    <h3 class="sec-h music-card__artist">Select a song to play</h3>
                 </div>
+
                 <div class="music-controls">
-                    <audio id="song">
-                        <source src="/assets/Hai Junoon.mp3" type="audio/mp3">
-                    </audio>
-                    <input type="range" value="0" id="music-timeline">
+                    <input 
+                        type="range" 
+                        value="0" 
+                        min="0" 
+                        id="music-timeline" 
+                        aria-label="Track progress"
+                    />
                 </div>
+
                 <div class="buttons">
-                    <button class="btn" id="backward" onclick="">
-                        <span class="material-symbols-outlined">
-                            fast_rewind
-                        </span>
+                    <button type="button" class="btn" id="backward" aria-label="Rewind 10 seconds">
+                        <span class="material-symbols-outlined" aria-hidden="true">fast_rewind</span>
                     </button>
-                    <button class="btn" id="play-pause" onclick="playPause()">
-                        <span class="material-symbols-outlined">
-                            
-                            play_arrow
-                        </span>
+                    <button type="button" class="btn" id="play-pause" aria-label="Play or pause track">
+                        <span class="material-symbols-outlined" aria-hidden="true">play_arrow</span>
                     </button>
-                    <button class="btn" id="forward" onclick="">
-                        <span class="material-symbols-outlined">
-                            fast_forward
-                        </span>
+                    <button type="button" class="btn" id="forward" aria-label="Fast forward 10 seconds">
+                        <span class="material-symbols-outlined" aria-hidden="true">fast_forward</span>
                     </button>
                 </div>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+            </section>
+        </article>
+    </main>
+
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    
+
+    <script src="script2.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const USER_ACCESS_TOKEN = "BQA9k0WqcqrJjiqmKbcuy36AL1JI4pLzmXXTrYc3SziRFSvbEA6wrM6IfdKUdVJtRasJHISo-fIILGAjn57VyxuebfAbARSr-mc3dFiWyGrmTbdnH7Mc9df_kyas0lv5w8euQEs8FcrYkXJIdyDftmqnZ8DbsLiB0iwn40jWhvQWTQGcLdGVyn9gSZoIFV_P7yViISiame_PejnitPcx0T84QKe7EQgOHGrLSzAEHByeqQFw9C7FokPJsf1zDgELm9BTTBfaMeA";
+            
+            if (window.MusicPlayerApp) {
+                window.MusicPlayerApp.init(USER_ACCESS_TOKEN);
+            }
+        });
+    </script>
 </body>
 
 </html>
